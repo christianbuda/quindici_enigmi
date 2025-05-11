@@ -18,8 +18,10 @@
   <div class="start-screen" id="startScreen">
     <h1>Facciamo un gioco</h1>
     <img src="sega.jpg" alt="sega" width="600" />
-    <p>Ho preparato 15 enigmi che dovrete risolvere tutti insieme per arrivare alla chiave, la strategia migliore è la collaborazione, almeno per ora...<br><br>(no sul serio, cercate di arrivare alla fine tutti insieme)</p>
+    <p>Ho preparato 15 enigmi che dovrete risolvere tutti insieme per arrivare alla chiave.
+      <br>La strategia migliore è la collaborazione, almeno per ora...<br><br>(no sul serio, cercate di arrivare alla fine tutti insieme)</p>
     <button onclick="startGame()">Qual è il peggio che può succedere?</button>
+    <p>NOTA: solo alcuni di voi saranno in grado di risolvere certi enigmi.<br>Siete stati avvisati.</p>
   </div>
   
 
@@ -30,7 +32,7 @@
       <img src="puzzle88.jpg" alt="puzzle 88 image" width="600" />
         <p>Una pallina da tennis è rotolata giù in una buca. Questa particolare buca è estremamente profonda e ha una curva netta nel mezzo, rendendo impossibile recuperare la pallina a mano.Tanto per migliorare le cose, il terreno attorno alla buca è fatto di argilla dura, quindi scavare non è un'opzione.
           <br><br>
-          Tuttavia, hai a disposizione qualcosa di incredibilmente comune che puoi usare per tirare fuori la pallina. Cosa usi per recuperarla? Rispondi con una parola di cinque lettere.</p>
+          Tuttavia, hai a disposizione qualcosa di incredibilmente comune che puoi usare per tirare fuori la pallina. Cosa usi per recuperarla?</p>
       </div>
 
       <input type="text" id="answer1" />
@@ -71,9 +73,13 @@
     <div style="margin-top:20px;">
       <button onclick="showHint('hint2a')">SOS ma con stile</button>
       <button onclick="showHint('hint2b')">Invia soccorso emotivo</button>
+      <button onclick="showHint('hint2c')">Giuro che questo è utile</button>
+      <button onclick="showHint('hint2d')" style="background-color: red;">Giuro che questo è utile</button>
 
       <p class="hint-text" id="hint2a" style="display:none;">Ti prego dimmi che non hai scritto ragno...</p>
-      <p class="hint-text" id="hint2b" style="display:none;"><img src="tooth riddle.jpg" alt="dentimort" width="600" /></p>
+      <p class="hint-text" id="hint2b" style="display:none;"><img src="tooth riddle.jpg" alt="dentimort" width="400" /></p>
+      <p class="hint-text" id="hint2c" style="display:none;">Pensa un po' hai cruciverba, magari "la mia prima" è una lettera...</p>
+      <p class="hint-text" id="hint2d" style="display:none;">S C A ...</p>
     </div>
     </div>
 
@@ -92,7 +98,7 @@
     <br>
 
     <input type="text" id="answer3" />
-    <button onclick="checkAnswer('enigma3', 'answer3', ['porcodeddio', 'porco de dio'], 'output3', 'next3')">Hai sbagliato? Bene, continua così.</button>
+    <button onclick="checkAnswer('enigma3', 'answer3', ['porcodeddio', 'porcodedio', 'porco de dio'], 'output3', 'next3')">Hai sbagliato? Bene, continua così.</button>
 
     <!-- Hints -->
     <div style="margin-top:20px;">
@@ -115,7 +121,7 @@
       <img src="geroglifico.jpg" alt="geroglifico" width="600" />
       <br>
       <input type="text" id="answer4" />
-      <button onclick="checkAnswer('enigma4', 'answer4', ['padre dare pane figlio', 'il padre da pane a suo figlio', 'il padre da del pane a suo figlio'], 'output4', 'next4')">L'ostinazione è la vera trappola.</button>
+      <button onclick="checkAnswer('enigma4', 'answer4', ['padre dare pane figlio', 'il padre da pane a suo figlio', 'il padre da del pane a suo figlio', 'il padre dà pane a suo figlio', 'il padre dà del pane a suo figlio'], 'output4', 'next4')">L'ostinazione è la vera trappola.</button>
 
       <!-- Hints -->
       <div style="margin-top:20px;">
@@ -123,11 +129,13 @@
         <button onclick="showHint('hint4b')">Lacrime in alta definizione</button>
         <button onclick="showHint('hint4c')">Ho scordato l'asciugamano a casa</button>
         <button onclick="showHint('hint4d')">PANICO</button>
+        <button onclick="showHint('hint4e')" style="background-color: red;">Sto letteralmente piangendo</button>
 
         <p class="hint-text" id="hint4a" style="display:none;">Sembra geroglifico, forse qualcuno di voi può provare a tradurlo?</p>
-        <p class="hint-text" id="hint4b" style="display:none;">Ci sono un padre e un figlio del pane</p>
+        <p class="hint-text" id="hint4b" style="display:none;">Ci sono un padre e un figlio, e del pane</p>
         <p class="hint-text" id="hint4c" style="display:none;">Qualcuno dà qualcosa a qualcun altro...</p>
         <p class="hint-text" id="hint4d" style="display:none;">Non è un padre qualsiasi, e il figlio è proprio del padre, il pane però è del tutto generico</p>
+        <p class="hint-text" id="hint4e" style="display:none;">La soluzione è: Il padre dà del pane a suo figlio</p>
       </div>
     </div>
 
@@ -272,7 +280,7 @@
         Tre fratelli, ciascun con sua croce:<br>
         Alessio ha fede, Giovanni la voce,<br>
         e in mezzo a processi, risse e litigi,<br>
-        spunta De Merdis, tra sputi e fastigi.<br>
+        spunta De Merdis, tra sputi e fastidi.<br>
         Chi è l'autore che gioca coi drammi,<br>
         tra santità, dubbi… e odore di fiammi?</p>
       <input type="text" id="answer10" />
@@ -334,7 +342,7 @@
       <img src="william.jpg" alt="will" width="400" />
       <br>
       <input type="text" id="answer12" />
-      <button onclick="checkAnswer('enigma12', 'answer12', ['william shakes a pear', 'william shakesapear', 'william shakesapeare'], 'output12', 'next12')">E facciamola fruttare sta laurea</button>
+      <button onclick="checkAnswer('enigma12', 'answer12', ['william shakes a pear'], 'output12', 'next12')">E facciamola fruttare sta laurea</button>
 
       <!-- Hints -->
       <div style="margin-top:20px;">
@@ -368,7 +376,7 @@
         <button onclick="showHint('hint13a')">A qualcuno piace soffrire</button>
         <button onclick="showHint('hint13b')">Fine corsa, senza speranza</button>
         <button onclick="showHint('hint13c')">Ok, penso di aver bisogno di un abbraccio (o più di uno)</button>
-        <button onclick="showHint('hint13d')">Clicca qui per l'ennesima delusione</button>
+        <button onclick="showHint('hint13d')" style="background-color: red;">Clicca qui per l'ennesima delusione</button>
 
         <p class="hint-text" id="hint13a" style="display:none;">Prima di lasciarti trasportare dall'entusiasmo, ricorda che un quadrato è tale solo se è chiuso su tutti e quattro i lati.
           <br>
@@ -403,14 +411,14 @@
       Qual è il VERO nome del protagonista?
       </p>
       <input type="text" id="answer14" />
-      <button onclick="checkAnswer('enigma14', 'answer14', ['gianni valgianni', 'gianni val gianni'], 'output14', 'next14')">Hai dubbi? Bene, dovresti.</button>
+      <button onclick="checkAnswer('enigma14', 'answer14', ['giovanni valgiovanni', 'giovanni val giovanni'], 'output14', 'next14')">Hai dubbi? Bene, dovresti.</button>
 
       <!-- Hints -->
       <div style="margin-top:20px;">
         <button onclick="showHint('hint14a')">Questa volta vi perdono</button>
         <button onclick="showHint('hint14b')">MA NON FORZATE LA MANO</button>
         <button onclick="showHint('hint14c')">Non è un momento, è la vita</button>
-        <button onclick="showHint('hint14d')">Clicco solo perché urlare è malvisto</button>
+        <button onclick="showHint('hint14d')" style="background-color: red;">Clicco solo perché urlare è malvisto</button>
 
         <p class="hint-text" id="hint14a" style="display:none;">Là siede Cosetta, con fiocco e treccine,<br>
           insegue l’amore tra mille rovine.<br>
@@ -425,7 +433,7 @@
           col tono pomposo e lo stile afflitto?<br>
           È Vittorio Maria Ugo, solenne e distinto,<br>
           che in patria era Hugo, ma qui suona più finto.</p>
-        <p class="hint-text" id="hint14d" style="display:none;">Avete capito com'è che viene chiamato il protagonista no? Bene, come si chiamerebbe qui?</p>
+        <p class="hint-text" id="hint14d" style="display:none;">Il protagonista fa Jean di nome, che in italiano sarebbe?</p>
       </div>
     </div>
 
@@ -437,7 +445,7 @@
     <!-- Enigma 15 -->
     <div class="enigma" id="enigma15">
       <h2>Enigma 15</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/ZzzfsbDKz4E?si=oFHmaRtnBGfGguv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" style="margin-top:120px; margin-bottom:120px; transform: rotate(90deg); transform-origin: center center;"  src="https://www.youtube.com/embed/ZzzfsbDKz4E?si=oFHmaRtnBGfGguv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <br>
       <input type="text" id="answer15" />
       <button onclick="checkAnswer('enigma15', 'answer15', ['minion', 'minions'], 'output15', 'next15')" style="background-color: yellow;">Non stai sbagliando. Stai collezionando delusioni.</button>
@@ -446,9 +454,11 @@
       <div style="margin-top:20px;">
         <button onclick="showHint('hint15a')">Chiedi aiuto, ma con dignità</button>
         <button onclick="showHint('hint15b')">Non ce la sto facendo™</button>
+        <button onclick="showHint('hint15c')">Adesso mi ammazzo</button>
 
-        <p class="hint-text" id="hint15a" style="display:none;">Non hai notato che qualcosa nella pagina è un po' "inusuale"?</p>
-        <p class="hint-text" id="hint15b" style="display:none;">Magari, e dico magari, la risposta è una delle parole nascoste che sono svelate nella relazione...</a></p>
+        <p class="hint-text" id="hint15a" style="display:none;">Non hai notato che qualcosa in questa pagina web è un po' "inusuale"?</p>
+        <p class="hint-text" id="hint15b" style="display:none;">Magari, e dico magari, la risposta è una delle parole nascoste che sono svelate nella relazione...</p>
+        <p class="hint-text" id="hint15c" style="display:none;">Il COLORE inusuale in questa pagina, le PAROLE menzionate nel video.<br>E SUUUUUUUUUUUUUUUU</p>
       </div>
       </div>
 
@@ -472,11 +482,13 @@
         <button onclick="showHint('hint16a')">Tutto crolla, ma hey, sorridiamo</button>
         <button onclick="showHint('hint16b')">Terapia via bottone, che lusso</button>
         <button onclick="showHint('hint16c')">Non sto male, sono un concept</button>
+        <button onclick="showHint('hint16d')" style="background-color: red;">Non sto male, sono un concept</button>
 
         <p class="hint-text" id="hint16a" style="display:none;">Descrivilo in maniera un po' creativa e divertente, daiiiiii
           </p>
         <p class="hint-text" id="hint16b" style="display:none;">È un busto, e c'è Mussolini, usa un po' la fantasia...</p>
-        <p class="hint-text" id="hint16c" style="display:none;">Prendi tutte le lettere che hai raccolto finora, non noti un certo PATTERN?</p>
+        <p class="hint-text" id="hint16c" style="display:none;">Prendi tutte le lettere che hai raccolto finora, non noti un certo PATTERN da poter CONTINUARE?</p>
+        <p class="hint-text" id="hint16d" style="display:none;">Alcune sono maiuscole e altre no...</p>
       </div>
     </div>
 
