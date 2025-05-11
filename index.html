@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enigma Game</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; font-size: 20px;}
+    .start-screen {display: block;}
+    .enigma { display: none; margin-top: 30px; }
+    .enigma.active { display: block; }
+    .output { display: none; font-family: serif; font-size: 200px; color: blue;  font-weight: bold; margin-top: 15px;  margin-top: 10px; margin-bottom: 10px;}
+    .next-button { display: none;}
+    .text-with-image {display: flex; align-items: center; justify-content: start;}
+  </style>
+</head>
+<body>
+
+  <div class="start-screen" id="startScreen">
+    <h1>Facciamo un gioco</h1>
+    <img src="sega.jpg" alt="sega" width="600" />
+    <p>Ho preparato 15 enigmi che dovrete risolvere tutti insieme per arrivare alla chiave, la strategia migliore è la collaborazione, almeno per ora...<br><br>(no sul serio, cercate di arrivare alla fine tutti insieme)</p>
+    <button onclick="startGame()">Qual è il peggio che può succedere?</button>
+  </div>
+  
+
+    <!-- Enigma 1 -->
+    <div class="enigma" id="enigma1">
+      <h2>Enigma 1</h2>
+      <div class="text-with-image">
+      <img src="puzzle88.jpg" alt="puzzle 88 image" width="600" />
+        <p>Una pallina da tennis è rotolata giù in una buca. Questa particolare buca è estremamente profonda e ha una curva netta nel mezzo, rendendo impossibile recuperare la pallina a mano.Tanto per migliorare le cose, il terreno attorno alla buca è fatto di argilla dura, quindi scavare non è un'opzione.
+          <br><br>
+          Tuttavia, hai a disposizione qualcosa di incredibilmente comune che puoi usare per tirare fuori la pallina. Cosa usi per recuperarla? Rispondi con una parola di cinque lettere.</p>
+      </div>
+
+      <input type="text" id="answer1" />
+      <button onclick="checkAnswer('enigma1', 'answer1', ['acqua'], 'output1', 'next1')">Provare è il primo passo verso il fallimento...</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint1a')">Help pls</button>
+        <button onclick="showHint('hint1b')">Sto soffrendo</button>
+        <button onclick="showHint('hint1c')">Mamma guarda, sono un fallimento</button>
+
+        <p class="hint-text" id="hint1a" style="display:none;">"Non riesco a raggiungere il fondo della buca, quindi magari cerco qualche strumento che possa farlo" penserai, ma no, non è questa la strada giusta.
+          <br>
+          C'è un modo per far sì che la pallina arrivi da sola all'imboccatura della buca?</p>
+        <p class="hint-text" id="hint1b" style="display:none;">Pensa alle caratteristiche particolari di una pallina da tennis. Rimbalza, è leggera... Beh, ha molte proprietà interessanti, ma cosa succede quando lanci una pallina da tennis in un lago?</p>
+        <p class="hint-text" id="hint1c" style="display:none;">Se arrivasse un forte temporale proprio ora, probabilmente potresti recuperare la tua pallina senza fare nulla.
+          <br>
+          Pensa al perché.
+          <br>
+          E poi cos'è esattamente la "pioggia"?
+          </p>
+      </div>
+    </div>
+
+     <!-- Output -->
+    <p class="output" id="output1">B</p>
+    <button class="next-button" id="next1" onclick="goToNext('output1', 'next1', 'enigma2')" style="display:none;">LESGOOOOOOOOOOOOOOOOOOOOOOOOOOO</button>
+ 
+
+    <!-- Enigma 2 -->
+    <div class="enigma" id="enigma2">
+    <h2>Enigma 2</h2>
+      <p>La mia prima è la terza di passione,<br>e tre ne vuole la sottomissione,<br>la seconda è colei che, amica o amante, del cuore è la compagnia costante,<br>la terza è un albero dalla chioma folta, nobile ramo di foresta incolta.<br><br>Ora unisci le tre e dimmi, o tu, viandante:<br>nero, sei zampe, sporco e ripugnante, veramente baciarlo è cosa grama.<br><br>Sai ora dirmi come esso si chiama?</p>
+    <input type="text" id="answer2" />
+    <button onclick="checkAnswer('enigma2', 'answer2', ['scarafaggio', 'blatta'], 'output2', 'next2')">Hai scelto. Male, probabilmente.</button>
+
+    <!-- Hints -->
+    <div style="margin-top:20px;">
+      <button onclick="showHint('hint2a')">SOS ma con stile</button>
+      <button onclick="showHint('hint2b')">Invia soccorso emotivo</button>
+
+      <p class="hint-text" id="hint2a" style="display:none;">Ti prego dimmi che non hai scritto ragno...</p>
+      <p class="hint-text" id="hint2b" style="display:none;"><img src="tooth riddle.jpg" alt="dentimort" width="600" /></p>
+    </div>
+    </div>
+
+    <!-- Correct/Incorrect Output -->
+    <p class="output" id="output2">i</p>
+    <button class="next-button" id="next2" onclick="goToNext('output2', 'next2', 'enigma3')" style="display:none;">ALLA PROSSIMA CI PRENDIAMO LA POLONIA</button>
+     
+
+    <!-- Enigma 3 -->
+    <div class="enigma" id="enigma3">
+    <h2>Enigma 3</h2>
+    <audio width="500" controls>
+        <source src="enigma3.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <br>
+
+    <input type="text" id="answer3" />
+    <button onclick="checkAnswer('enigma3', 'answer3', ['porcodeddio', 'porco de dio'], 'output3', 'next3')">Hai sbagliato? Bene, continua così.</button>
+
+    <!-- Hints -->
+    <div style="margin-top:20px;">
+      <button onclick="showHint('hint3a')">Chiedi aiuto, ma con dignità</button>
+      <button onclick="showHint('hint3b')">Non ce la sto facendo™</button>
+
+      <p class="hint-text" id="hint3a" style="display:none;">Cosa precede questa melodia iconica?</p>
+      <p class="hint-text" id="hint3b" style="display:none;"><a href="https://www.youtube.com/watch?v=6f80i76xajE">Eddaiiiii</a></p>
+    </div>
+    </div>
+
+    <!-- Correct/Incorrect Output -->
+    <p class="output" id="output3">m</p>
+    <button class="next-button" id="next3" onclick="goToNext('output3', 'next3', 'enigma4')" style="display:none;">PREPARA I CAVALLI</button>
+     
+
+    <!-- Enigma 4 -->
+    <div class="enigma" id="enigma4">
+      <h2>Enigma 4</h2>
+      <img src="geroglifico.jpg" alt="geroglifico" width="600" />
+      <br>
+      <input type="text" id="answer4" />
+      <button onclick="checkAnswer('enigma4', 'answer4', ['padre dare pane figlio', 'il padre da pane a suo figlio', 'il padre da del pane a suo figlio'], 'output4', 'next4')">L'ostinazione è la vera trappola.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint4a')">Sto morendo dentro</button>
+        <button onclick="showHint('hint4b')">Lacrime in alta definizione</button>
+        <button onclick="showHint('hint4c')">Ho scordato l'asciugamano a casa</button>
+        <button onclick="showHint('hint4d')">PANICO</button>
+
+        <p class="hint-text" id="hint4a" style="display:none;">Sembra geroglifico, forse qualcuno di voi può provare a tradurlo?</p>
+        <p class="hint-text" id="hint4b" style="display:none;">Ci sono un padre e un figlio del pane</p>
+        <p class="hint-text" id="hint4c" style="display:none;">Qualcuno dà qualcosa a qualcun altro...</p>
+        <p class="hint-text" id="hint4d" style="display:none;">Non è un padre qualsiasi, e il figlio è proprio del padre, il pane però è del tutto generico</p>
+      </div>
+    </div>
+
+     <!-- Output -->
+    <p class="output" id="output4">U</p>
+    <button class="next-button" id="next4" onclick="goToNext('output4', 'next4', 'enigma5')" style="display:none;">NESSUNA PIETÀ, SOLO VITTORIA</button>
+
+
+
+    <!-- Enigma 5 -->
+    <div class="enigma" id="enigma5">
+      <h2>Enigma 5</h2>
+      <img src="semaforo.jpg" alt="semaforo" width="600" />
+      <br>
+      <input type="text" id="answer5" />
+      <button onclick="checkAnswer('enigma5', 'answer5', ['i don\'t know', 'i dont know'], 'output5', 'next5')">Premi pure, non aiuterà.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint5a')">Houston, abbiamo un me</button>
+        <button onclick="showHint('hint5b')">Mi arrendo, ciao</button>
+        <button onclick="showHint('hint5c')">Qualcuno mi ascolta?</button>
+
+        <p class="hint-text" id="hint5a" style="display:none;">C'è una persona che chiede alle luci del traffico...</p>
+        <p class="hint-text" id="hint5b" style="display:none;">E magari queste LUCI DEL TRAFFICO rispondono una cosa per uno...</p>
+        <p class="hint-text" id="hint5c" style="display:none;">I ask the traffic lights if it'll be all right<br>They say...</p>
+      </div>
+    </div>
+
+     <!-- Output -->
+    <p class="output" id="output5">s</p>
+    <button class="next-button" id="next5" onclick="goToNext('output5', 'next5', 'enigma6')" style="display:none;">SI VA PER LA GLORIA</button>
+
+    <!-- Enigma 6 -->
+    <div class="enigma" id="enigma6">
+      <h2>Enigma 6</h2>
+      <p>Sempre a...</p>
+      <input type="text" id="answer6" />
+      <button onclick="checkAnswer('enigma6', 'answer6', ['destra', 'viva il duce'], 'output6', 'next6')">Il vero errore è credere di aver capito.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint6a')">Non sto bene</button>
+        <button onclick="showHint('hint6b')">Serve supporto</button>
+
+        <p class="hint-text" id="hint6a" style="display:none;">Quando sei in dubbio...</p>
+        <p class="hint-text" id="hint6b" style="display:none;">Diciamo che sei nel bosco e ti trovi di fronte a un bivio</p>
+      </div>
+    </div>
+
+     <!-- Output -->
+    <p class="output" id="output6">So</p>
+    <button class="next-button" id="next6" onclick="goToNext('output6', 'next6', 'enigma7')" style="display:none;">SPACCHIAMO TUTTO E POI SI CHIEDE SCUSA</button>
+
+    <!-- Enigma 7 -->
+    <div class="enigma" id="enigma7">
+      <h2>Enigma 7</h2>
+      <img src="minecraft.jpg" alt="minecraft" width="400" />
+      <br>
+      <input type="text" id="answer7" />
+      <button onclick="checkAnswer('enigma7', 'answer7', ['zappa'], 'output7', 'next7')">Hai imparato qualcosa? Speriamo di no.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint7a')">Anche oggi si piange domani</button>
+        <button onclick="showHint('hint7b')">I find this rather unnecessary</button>
+
+        <p class="hint-text" id="hint7a" style="display:none;">Sei tu a scuola</p>
+        <p class="hint-text" id="hint7b" style="display:none;">Serve per lavorare la terra...</p>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <p class="output" id="output7">T</p>
+    <button class="next-button" id="next7" onclick="goToNext('output7', 'next7', 'enigma8')" style="display:none;">CI FACCIAMO GLI IMPERI A COLAZIONE</button>
+
+
+    <!-- Enigma 8 -->
+    <div class="enigma" id="enigma8">
+      <h2>Enigma 8</h2>
+      <div class="text-with-image">
+      <img src="topi.webp" alt="puzzle 36" width="600" />
+        <p>I topi sono famosi per la loro capacità di moltiplicarsi a una velocità incredibile. Il tipo di topo di cui parliamo qui partorisce una volta al mese, dando alla luce 12 cuccioli ogni volta. I cuccioli di topo maturano e possono a loro volta partorire due mesi dopo la nascita.
+          <br><br>
+          Hai preso uno di questi adorabili cuccioli di topo al negozio di animali e lo hai portato a casa il giorno dopo la sua nascita. Tra 10 mesi da ora, quanti topi avrai?
+        </p>
+      </div>
+
+      <input type="text" id="answer8" />
+      <button onclick="checkAnswer('enigma8', 'answer8', ['1', 'uno'], 'output8', 'next8')">Bravo! Hai fatto esattamente quello che non dovevi fare.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint8a')">Ripartiamo da zero</button>
+        <button onclick="showHint('hint8b')">Chiamate il 118</button>
+        <button onclick="showHint('hint8c')">Non c'è più niente da fare</button>
+
+        <p class="hint-text" id="hint8a" style="display:none;">Potresti pensare che ci saranno molti calcoli fastidiosi da fare per risolvere questo rompicapo, ma non è necessario fare nulla di complicato per trovare la risposta.
+          <br>Leggi attentamente il problema.</p>
+        <p class="hint-text" id="hint8b" style="display:none;">Ti ricordi quanti topi avevi all'inizio? Hai considerato quanti topi puoi aspettarti, dato quel numero?</p>
+        <p class="hint-text" id="hint8c" style="display:none;">OK, te lo spiego chiaramente. Il tuo topo deve rimanere incinta prima di poter partorire.
+          <br>Cosa serve a un topo per rimanere incinta?
+          </p>
+      </div>
+    </div>
+
+     <!-- Output -->
+    <p class="output" id="output8">f</p>
+    <button class="next-button" id="next8" onclick="goToNext('output8', 'next8', 'enigma9')" style="display:none;">DA QUI IN POI SOLO SPARTACO</button>
+ 
+
+    <!-- Enigma 9 -->
+    <div class="enigma" id="enigma9">
+      <h2>Enigma 9</h2>
+      <img src="equation.png" alt="eqn" width="600" />
+      <br>
+      <input type="text" id="answer9" />
+      <button onclick="checkAnswer('enigma9', 'answer9', ['L'], 'output9', 'next9')">E facciamola fruttare sta laurea</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint9a')">Ripartiamo da zero...</button>
+        <button onclick="showHint('hint9b')">Qui giace il sistema universitario</button>
+
+        <p class="hint-text" id="hint9a" style="display:none;">In un contesto più classico forse useresti le lettere K, U, E...</p>
+        <p class="hint-text" id="hint9b" style="display:none;">Se E è l'energia totale, K l'energia cinetica, e U l'energia potenziale, allora K-U è?</p>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <p class="output" id="output9">uO</p>
+    <button class="next-button" id="next9" onclick="goToNext('output9', 'next9', 'enigma10')" style="display:none;">FACCIAMO LA STORIA (MA A CASO)</button>
+
+
+    <!-- Enigma 10 -->
+    <div class="enigma" id="enigma10">
+      <h2>Enigma 10</h2>
+      <p>In Russia profonda, tra vodka e deliri,<br>
+        vive un autore dai toni martiri.<br>
+        Teodoro il cupo, penna dell’anima storta,<br>
+        scrive di drammi con l’ansia alla porta.<br>
+        Tre fratelli, ciascun con sua croce:<br>
+        Alessio ha fede, Giovanni la voce,<br>
+        e in mezzo a processi, risse e litigi,<br>
+        spunta De Merdis, tra sputi e fastigi.<br>
+        Chi è l'autore che gioca coi drammi,<br>
+        tra santità, dubbi… e odore di fiammi?</p>
+      <input type="text" id="answer10" />
+      <button onclick="checkAnswer('enigma10', 'answer10', ['teodoro de michelis dostoglieschi', 'teodoro dostoglieschi'], 'output10', 'next10')">Continua così. Verso il baratro.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint10a')">Fermiamoci un attimo</button>
+
+        <p class="hint-text" id="hint10a" style="display:none;">Un grande scrittore russo, un po' italianizzato...</p>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <p class="output" id="output10">n</p>
+    <button class="next-button" id="next10" onclick="goToNext('output10', 'next10', 'enigma11')" style="display:none;">DOMANI DOMINIAMO L'UNIVERSO</button>
+
+
+    <!-- Enigma 11 -->
+    <div class="enigma" id="enigma11">
+      <h2>Enigma 11</h2>
+      <div class="text-with-image">
+      <img src="scatole.webp" alt="puzzle 84" width="600" />
+        <p>In preparazione per il tuo grande trasloco, hai messo i tuoi oggetti in 20 scatole e le hai disposte come mostrato qui sotto. Con tutto ormai impacchettato, sei pronto per etichettare ogni scatola con il suo contenuto. Tuttavia, per farlo, dovrai spostare alcune scatole.
+          <br><br>Quante di queste scatole non possono essere etichettate senza riorganizzare le pile?</p>
+      </div>
+
+      <input type="text" id="answer11" />
+      <button onclick="checkAnswer('enigma11', 'answer11', ['3', 'tre'], 'output11', 'next11')">Ci hai provato. Peccato.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint11a')">Aiuto, subito!</button>
+        <button onclick="showHint('hint11b')">Non ho più lacrime</button>
+        <button onclick="showHint('hint11c')">Non c'è verso eh</button>
+
+        <p class="hint-text" id="hint11a" style="display:none;">Nell'illustrazione sono visibili quattordici scatole. Devi usare ciò che puoi vedere per immaginare dove si trovano le scatole nascoste.
+          <br>
+          Puoi vedere chiaramente tutte le scatole nei due livelli superiori della pila, quindi devi preoccuparti solo dei due strati di scatole più vicini al suolo.
+          </p>
+        <p class="hint-text" id="hint11b" style="display:none;">Le scatole sono impilate una sull’altra, quindi qualsiasi scatola non direttamente appoggiata a terra deve essere sostenuta da un'altra scatola sotto di essa.
+          <br>
+          Sapendo questo, puoi dedurre che ci sono almeno sei scatole nel secondo strato dal basso e almeno nove scatole appoggiate direttamente sul pavimento.</p>
+        <p class="hint-text" id="hint11c" style="display:none;">Lavorando dal basso verso l’alto, puoi dedurre che ci sono nove scatole nel primo strato, sei scatole nel secondo, quattro nel terzo, e poi una scatola che poggia sull’intera pila. Questo dà un totale di 20 scatole, proprio come indicato nel rompicapo.
+          <br>
+          Con tutte le scatole conteggiate, tutto ciò che devi fare è capire quali di queste scatole nascoste sono completamente circondate da altre scatole su tutti i lati.
+          </p>
+      </div>
+    </div>
+
+     <!-- Output -->
+    <p class="output" id="output11">nL</p>
+    <button class="next-button" id="next11" onclick="goToNext('output11', 'next11', 'enigma12')" style="display:none;">SPEGNI IL CERVELLO, ACCENDI LA GLORIA</button>
+
+
+    <!-- Enigma 12 -->
+    <div class="enigma" id="enigma12">
+      <h2>Enigma 12</h2>
+      <img src="william.jpg" alt="will" width="400" />
+      <br>
+      <input type="text" id="answer12" />
+      <button onclick="checkAnswer('enigma12', 'answer12', ['william shakes a pear', 'william shakesapear', 'william shakesapeare'], 'output12', 'next12')">E facciamola fruttare sta laurea</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint12a')">Ripartiamo da zero...</button>
+        <button onclick="showHint('hint12b')">Qui giace il sistema universitario</button>
+
+        <p class="hint-text" id="hint12a" style="display:none;">Forse conviene pensarla in inglese, che c'è nell'immagine?</p>
+        <p class="hint-text" id="hint12b" style="display:none;">Vedo un certo William e una pera, ma che ci sta facendo?</p>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <p class="output" id="output12">y</p>
+    <button class="next-button" id="next12" onclick="goToNext('output12', 'next12', 'enigma13')" style="display:none;">SE NON ORA, GUERRA</button>
+
+    <!-- Enigma 13 -->
+    <div class="enigma" id="enigma13">
+      <h2>Enigma 13</h2>
+      <div class="text-with-image">
+      <img src="quadrati.webp" alt="puzzle 70" width="600" />
+        <p>La bandiera nazionale di questo paese ha lo stesso disegno sul fronte e sul retro. Gli aspiranti cavalieri di questo regno devono affrontare una serie di prove estenuanti, una delle quali consiste nel contare quanti quadrati ci sono sulla bandiera.
+          <br><br>
+          Dimostra di essere degno del cavalierato risolvendo il quesito: quanti quadrati ci sono sulla bandiera nazionale?</p>
+      </div>
+
+      <input type="text" id="answer13" />
+      <button onclick="checkAnswer('enigma13', 'answer13', ['44'], 'output13', 'next13')">Anche il caso si arrende.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint13a')">A qualcuno piace soffrire</button>
+        <button onclick="showHint('hint13b')">Fine corsa, senza speranza</button>
+        <button onclick="showHint('hint13c')">Ok, penso di aver bisogno di un abbraccio (o più di uno)</button>
+        <button onclick="showHint('hint13d')">Clicca qui per l'ennesima delusione</button>
+
+        <p class="hint-text" id="hint13a" style="display:none;">Prima di lasciarti trasportare dall'entusiasmo, ricorda che un quadrato è tale solo se è chiuso su tutti e quattro i lati.
+          <br>
+          Tieni bene a mente questo mentre conti tutti i piccoli quadrati, e dovresti arrivare a un totale di 17. Ma questa non è la risposta.
+          </p>
+        <p class="hint-text" id="hint13b" style="display:none;">Hai notato che puoi combinare più quadrati per formare quadrati più grandi?
+          <br>
+          Ad esempio, puoi crearne uno proprio al centro della bandiera, composto da 4 quadrati gialli, 4 quadrati verdi, e 1 quadrato bianco al centro</p>
+        <p class="hint-text" id="hint13c" style="display:none;">Hai trovato il quadrato centrale formato da quattro quadrati verdi, quattro quadrati gialli e un quadrato bianco, vero?
+          <br>Se guardi di nuovo, vedrai che questo grande quadrato in realtà contiene altri quattro quadrati più piccoli, ognuno dei quali contiene: un quadrato bianco, un quadrato giallo, e due quadrati verdi.</p>
+        <p class="hint-text" id="hint13d" style="display:none;">Aggiungi i cinque quadrati più grandi al centro della bandiera ai 17 quadrati individuali che hai già contato, e otterrai un totale di 22.
+          <br>
+          Ma è davvero questa la risposta giusta?
+          <br>
+          Due dei cavalieri nella parte superiore dello schermo sembrano osservare la bandiera da una prospettiva diversa rispetto all'altro cavaliere – e rispetto a te.
+          <br>Ricorda: il disegno è identico su entrambi i lati della bandiera, quindi devi raddoppiare quel totale di 22 per ottenere la vera risposta!</p>
+      </div>
+    </div>
+
+     <!-- Output -->
+    <p class="output" id="output13">h</p>
+    <button class="next-button" id="next13" onclick="goToNext('output13', 'next13', 'enigma14')" style="display:none;">STIAMO PER FARE LA CAZZATA DEFINITIVA</button>
+
+    <!-- Enigma 14 -->
+    <div class="enigma" id="enigma14">
+      <h2>Enigma 14</h2>
+      <p>A Parigi bagnata, tra pioggia e sudore,<br>
+        le strade sanno di pane e rancore.<br>
+        C'è fango nei cuori, nei vicoli stretti,<br>
+        e un'aria teatrale da drammi perfetti.
+      <br><br>
+      Qual è il VERO nome del protagonista?
+      </p>
+      <input type="text" id="answer14" />
+      <button onclick="checkAnswer('enigma14', 'answer14', ['gianni valgianni', 'gianni val gianni'], 'output14', 'next14')">Hai dubbi? Bene, dovresti.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint14a')">Questa volta vi perdono</button>
+        <button onclick="showHint('hint14b')">MA NON FORZATE LA MANO</button>
+        <button onclick="showHint('hint14c')">Non è un momento, è la vita</button>
+        <button onclick="showHint('hint14d')">Clicco solo perché urlare è malvisto</button>
+
+        <p class="hint-text" id="hint14a" style="display:none;">Là siede Cosetta, con fiocco e treccine,<br>
+          insegue l’amore tra mille rovine.<br>
+          Sospira in francese, ma a tratti sbaglia,<br>
+          pare nata a Lodi, più che a Versailles, cara figlia.</p>
+        <p class="hint-text" id="hint14b" style="display:none;">Poi arriva Giavero, inflessibile e scuro,<br>
+          con codice in tasca e cipiglio duro.<br>
+          Insegue un fantasma dal cuore gentile,<br>
+          ma inciampa nel dubbio, il suo peggior fucile.
+          </p>
+        <p class="hint-text" id="hint14c" style="display:none;">Chi ha scritto il romanzo che tutti han sentito,<br>
+          col tono pomposo e lo stile afflitto?<br>
+          È Vittorio Maria Ugo, solenne e distinto,<br>
+          che in patria era Hugo, ma qui suona più finto.</p>
+        <p class="hint-text" id="hint14d" style="display:none;">Avete capito com'è che viene chiamato il protagonista no? Bene, come si chiamerebbe qui?</p>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <p class="output" id="output14">ih</p>
+    <button class="next-button" id="next14" onclick="goToNext('output14', 'next14', 'enigma15')" style="display:none;">OGGI SI CONQUISTA, DOMANI SI RIPOSA</button>
+
+
+    <!-- Enigma 15 -->
+    <div class="enigma" id="enigma15">
+      <h2>Enigma 15</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ZzzfsbDKz4E?si=oFHmaRtnBGfGguv0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <br>
+      <input type="text" id="answer15" />
+      <button onclick="checkAnswer('enigma15', 'answer15', ['minion', 'minions'], 'output15', 'next15')" style="background-color: yellow;">Non stai sbagliando. Stai collezionando delusioni.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint15a')">Chiedi aiuto, ma con dignità</button>
+        <button onclick="showHint('hint15b')">Non ce la sto facendo™</button>
+
+        <p class="hint-text" id="hint15a" style="display:none;">Non hai notato che qualcosa nella pagina è un po' "inusuale"?</p>
+        <p class="hint-text" id="hint15b" style="display:none;">Magari, e dico magari, la risposta è una delle parole nascoste che sono svelate nella relazione...</a></p>
+      </div>
+      </div>
+
+      <!-- Correct/Incorrect Output -->
+      <p class="output" id="output15">Iih</p>
+      <button class="next-button" id="next15" onclick="goToNext('output15', 'next15', 'enigma16')" style="display:none;">ENTRIAMO NELLA LEGGENDA</button>
+   
+
+    <!-- Enigma 16 -->
+    <div class="enigma" id="enigma16">
+      <h2>Enigma Bonus!</h2>
+      <div class="text-with-image">
+      <img src="LVI.jpg" alt="LVI" width="400" />
+        <p>Se dovessi descrivere questo oggetto in una parola, quale sarebbe?</p>
+      </div>
+      <br>
+      <input type="text" id="answer16" />
+      <button onclick="checkAnswer('enigma16', 'answer16', ['bustolini'], 'output16', 'next16')">Geniale. In un altro universo.</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint16a')">Tutto crolla, ma hey, sorridiamo</button>
+        <button onclick="showHint('hint16b')">Terapia via bottone, che lusso</button>
+        <button onclick="showHint('hint16c')">Non sto male, sono un concept</button>
+
+        <p class="hint-text" id="hint16a" style="display:none;">Descrivilo in maniera un po' creativa e divertente, daiiiiii
+          </p>
+        <p class="hint-text" id="hint16b" style="display:none;">È un busto, e c'è Mussolini, usa un po' la fantasia...</p>
+        <p class="hint-text" id="hint16c" style="display:none;">Prendi tutte le lettere che hai raccolto finora, non noti un certo PATTERN?</p>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <p class="output" id="output16">tinyurl.com/</p>
+    <!-- <button class="next-button" id="next16" onclick="finishGame()" style="display:none;">STIAMO PER FARE LA CAZZATA DEFINITIVA</button> -->
+      
+
+  <script>
+    function startGame() {
+      document.getElementById('startScreen').style.display = 'none'; // Hide the start screen
+      document.getElementById('enigma1').classList.add('active');  // Show Enigma 1
+    }
+
+    // Check multiple correct answers
+    function checkAnswer(enigmaId, inputId, correctAnswers, outputId, nextButtonId) {
+      const input = document.getElementById(inputId).value.trim().toLowerCase();
+      if (correctAnswers.some(answer => answer.toLowerCase() === input)) {
+        document.getElementById(enigmaId).style.display = "none";
+        document.getElementById(outputId).style.display = 'block'; // Show correct output
+        document.getElementById(nextButtonId).style.display = "inline-block";
+      } else {
+        alert("Sbagliato, lol");
+      }
+    }
+
+    function goToNext(currentId, buttonId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(buttonId).style.display = "none";
+      document.getElementById(nextId).classList.add('active');
+    }
+
+    function finishGame() {
+      alert("tinyurl.com/");
+      // Optionally: redirect or show a secret message
+    }
+
+    function showHint(hintId) {
+      const hint = document.getElementById(hintId);
+      hint.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+B
+i
+m
+U
+s
+So
+T
+f
+uO
+n
+nL
+y
+h
+ih
+Iih
+tinyurl.com/
+
+BimUsSoTfuOnnLyhihIih
+
+
+
+SI VA PER LA GLORIA
+DOMANI DOMINIAMO L’UNIVERSO
+NESSUNA PIETÀ, SOLO VITTORIA
+PREPARA I CAVALLI
+ENTRIAMO NELLA LEGGENDA
+FACCIAMO LA STORIA (MA A CASO)
+OGGI SI CONQUISTA, DOMANI SI RIPOSA
+DA QUI IN POI SOLO SPARTACO
+STIAMO PER FARE LA CAZZATA DEFINITIVA
+METTI IL CASCO CHE SI VOLA
+SPEGNI IL CERVELLO, ACCENDI LA GLORIA
+CI FACCIAMO GLI IMPERI A COLAZIONE
+SPACCHIAMO TUTTO E POI SI CHIEDE SCUSA
+SE NON ORA, GUERRA
+
+
+Hai sbagliato? Bene, continua così.
+L'ostinazione è la vera trappola.
+Hai imparato qualcosa? Speriamo di no.
+Il vero errore è credere di aver capito.
+Bravo! Hai fatto esattamente quello che non dovevi fare.
+È bello vedere tanto impegno buttato al vento.
+Ci hai provato. Peccato.
+Geniale. In un altro universo.
+Hai dubbi? Bene, dovresti.
+Continua così. Verso il baratro.
+La logica piange.
+Anche il caso si arrende.
+Premi pure, non aiuterà.
+Non stai sbagliando. Stai collezionando delusioni.
+
+
+
+
+
+
+
+
+    <!-- Enigma 1 -->
+    <div class="enigma" id="enigma1">
+      <h2>Enigma 1</h2>
+      <img src="puzzle88.jpg" alt="puzzle 88 image" width="300" />
+      <p>What has to be broken before you can use it?</p>
+      <input type="text" id="answer1" />
+      <button onclick="checkAnswer('enigma1', 'answer1', ['egg', 'cazzo'], 'output1', 'next1')" style="background-color: yellow;">Submit</button>
+
+      <!-- Hints -->
+      <div style="margin-top:20px;">
+        <button onclick="showHint('hint1a')">Hint 1</button>
+        <button onclick="showHint('hint1b')">Hint 2</button>
+        <button onclick="showHint('hint1c')">Hint 3</button>
+
+        <p class="hint-text" id="hint1a" style="display:none;">It's fragile.</p>
+        <p class="hint-text" id="hint1b" style="display:none;">You eat it for breakfast.</p>
+        <p class="hint-text" id="hint1c" style="display:none;">Chickens produce it.</p>
+      </div>
+    </div>
+
+     <!-- Correct/Incorrect Output -->
+    <p class="output" id="output1">Correct! The answer is either an egg, a glass, or a promise. Well done!</p>
+    <button class="next-button" id="next1" onclick="goToNext('output1', 'next1', 'enigma2')" style="display:none;">Next Enigma</button>
